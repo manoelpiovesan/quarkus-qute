@@ -17,9 +17,13 @@ public class Startup {
     void onStart(@Observes StartupEvent ev) {
         System.out.println("The application is starting...");
 
-        Product.create("Product 1", 10.0, "Description 1");
-        Product.create("Product 2", 20.0, "Description 2");
-        Product.create("Product 3", 30.0, "Description 3");
+        if(!Product.listAll().isEmpty()){
+            Product.create("Product 1", 10.0, "Description 1");
+            Product.create("Product 2", 20.0, "Description 2");
+            Product.create("Product 3", 30.0, "Description 3");
+        }else{
+            System.out.println("Products already created");
+        }
 
     }
 
