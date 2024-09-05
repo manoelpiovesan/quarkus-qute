@@ -6,6 +6,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 
+/*
+ * Author: Manoel
+ */
 @MappedSuperclass
 public class AbstractEntity extends PanacheEntityBase {
 

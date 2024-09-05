@@ -6,9 +6,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.transaction.Transactional;
 
+/*
+ * Author: Manoel
+ */
 @Entity
 @Table(name = "product")
-public class Product extends  AbstractEntity{
+public class Product extends AbstractEntity {
 
     @Column(name = "name")
     public String name;

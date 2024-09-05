@@ -6,6 +6,7 @@ import io.quarkus.runtime.StartupEvent;
 import io.quarkus.runtime.annotations.RegisterForReflection;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.event.Observes;
+import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 
 
@@ -13,15 +14,16 @@ import jakarta.transaction.Transactional;
 @RegisterForReflection
 public class Startup {
 
+
     @Transactional
     void onStart(@Observes StartupEvent ev) {
         System.out.println("The application is starting...");
 
-        if(!Product.listAll().isEmpty()){
-            Product.create("Product 1", 10.0, "Description 1");
-            Product.create("Product 2", 20.0, "Description 2");
-            Product.create("Product 3", 30.0, "Description 3");
-        }else{
+        if (Product.listAll().isEmpty()) {
+            for (int i = 0; i < 10; i++) {
+                Product.create("Product " + i, 10.0 * (i + 1), "Description " + i);
+            }
+        } else {
             System.out.println("Products already created");
         }
 

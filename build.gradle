@@ -9,7 +9,8 @@ repositories {
 }
 
 dependencies {
-    implementation 'io.quarkus:quarkus-security-jpa'
+    implementation 'io.quarkus:quarkus-keycloak-authorization'
+    implementation 'io.quarkus:quarkus-oidc'
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
     implementation 'io.quarkus:quarkus-qute'
     implementation 'io.quarkus:quarkus-smallrye-openapi'
